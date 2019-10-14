@@ -1,8 +1,12 @@
 import * as React from "react"
-import { HelloComponent } from "../components"
+import { Header } from "../components"
 
-const App = () => {
-	return <HelloComponent />
+const App: React.FC<{}> = () => {
+	return (
+		<div className="container-fluid">
+			<Header />
+		</div>
+	)
 }
 
-export default App
+export { App }

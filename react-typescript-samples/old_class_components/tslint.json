@@ -14,6 +14,7 @@
 	  "semicolon": false,
 		"jsx-no-lambda": false,
 		"jsx-boolean-value": false,
+		"jsx-self-close": false,
 		"no-shadowed-variable": false,
 		"no-var-requires": false,
 		"no-empty-interface": false

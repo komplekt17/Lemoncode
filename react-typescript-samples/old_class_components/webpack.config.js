@@ -12,6 +12,8 @@ module.exports = {
 	},
 	entry: {
 		app: ["@babel/polyfill/noConflict", "./index.tsx"],
+		appStyles: "./styles/site.css",
+		vendor: ["react", "react-dom", "react-router-dom"],
 		vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"],
 	},
 	output: {
