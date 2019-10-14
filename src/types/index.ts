@@ -64,6 +64,11 @@ interface ITextFieldForm {
 	type?: string;
 }
 
+interface ISessionContext {
+	login: string;
+	updateLogin: (value: string) => void;
+}
+
 export {
 	IColor,
 	IHello,
@@ -77,4 +82,5 @@ export {
 	INotification,
 	ILoginPage,
 	ITextFieldForm,
+	ISessionContext,
 }
