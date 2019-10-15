@@ -13,8 +13,11 @@ module.exports = {
 	entry: {
 		app: ["@babel/polyfill/noConflict", "./index.tsx"],
 		appStyles: "./styles/site.css",
-		vendor: ["react", "react-dom", "react-router-dom"],
-		vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"],
+		vendor: ["react", "react-dom", "react-router-dom", "toastr"],
+		vendorStyles: [
+			"../node_modules/bootstrap/dist/css/bootstrap.css",
+			"'../node_modules/toastr/build/toastr.css',",
+		],
 	},
 	output: {
 		path: path.join(basePath, "dist"),

@@ -1,7 +1,7 @@
 import * as React from "react"
-import { IMemberRow } from "../../types"
+import { IMemberRowProps } from "../../types"
 
-const MemberRow: React.FC<IMemberRow> = ({ member }) => {
+const MemberRow: React.FC<IMemberRowProps> = ({ member }) => {
 	return (
 		<tr>
 			<td>

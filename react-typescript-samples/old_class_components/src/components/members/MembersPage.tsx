@@ -1,7 +1,8 @@
 import * as React from "react"
+import { Link } from 'react-router-dom'
 import { memberAPI } from '../../api'
 import { IMembersPage, IPropsMembersPage } from '../../types'
-import { MemberHeader, MemberRow } from '../members'
+import { MemberHeader, MemberRow} from '../members'
 
 class MembersPage extends React.Component<IPropsMembersPage, IMembersPage> {
 	constructor(props: any) {
@@ -21,6 +22,7 @@ class MembersPage extends React.Component<IPropsMembersPage, IMembersPage> {
 		return (
 			<div className="row">
 				<h2> Members Page</h2>
+				<Link to="/member">New Member</Link>
 				<table className="table">
 					<thead>
 						{/* {MemberHeader()} */}
