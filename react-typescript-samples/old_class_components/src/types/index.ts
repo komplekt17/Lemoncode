@@ -1,4 +1,4 @@
-import { History } from "history"
+import { FieldValidationResult } from "lc-form-validation"
 
 interface IMemberEntity {
 	id: number;
@@ -6,17 +6,44 @@ interface IMemberEntity {
 	avatar_url: string;
 }
 
-interface IMembersPage {
-	members: IMemberEntity[];
+interface IMemberErrors {
+	login: FieldValidationResult;
 }
 
-interface IPropsMembersPage {}
+interface IPageContainerProps {
+	params: { id: string };
+}
 
-interface IMemberRowProps {
+interface IPageContainerState {
+	member: IMemberEntity;
+	memberErrors: IMemberErrors;
+}
+
+interface IMembersRowProps {
 	member: IMemberEntity;
 }
 
-interface IFormInputProps {
+interface IMembersPageState {
+	members: IMemberEntity[];
+}
+
+interface IMembersPageProps {}
+
+interface IMemberPageProps {
+	member: IMemberEntity;
+	memberErrors: IMemberErrors;
+	onChange: (fieldName: string, value: string) => void;
+	onSave: () => void;
+}
+
+interface IMemberFormProps {
+	member: IMemberEntity;
+	memberErrors: IMemberErrors;
+	onChange: (fieldName: string, value: string) => void;
+	onSave: () => void;
+}
+
+interface IPropsInput {
 	name: string;
 	label: string;
 	placeholder?: string;
@@ -25,41 +52,22 @@ interface IFormInputProps {
 	error?: string;
 }
 
-interface IFormButtonProps {
+interface IPropsButton {
 	label: string;
 	className: string;
 	onClick: () => void;
 }
 
-interface IMemberFormProps {
-	member: IMemberEntity;
-	onChange: (fieldName: string, value: string) => void;
-	onSave: () => void;
-}
-
-interface IPageProps {
-	member: IMemberEntity;
-	onChange: (fieldName: string, value: string) => void;
-	onSave: () => void;
-}
-
-interface IPageContainerState {
-	member: IMemberEntity;
-}
-
-interface IPageContainerProps {
-	history: History;
-}
-
 export {
 	IMemberEntity,
-	IMembersPage,
-	IPropsMembersPage,
-	IMemberRowProps,
-	IMemberFormProps,
-	IPageProps,
-	IPageContainerState,
+	IMemberErrors,
 	IPageContainerProps,
-	IFormInputProps,
-	IFormButtonProps,
+	IPageContainerState,
+	IMembersRowProps,
+	IMembersPageState,
+	IMembersPageProps,
+	IMemberPageProps,
+	IMemberFormProps,
+	IPropsInput,
+	IPropsButton,
 }

@@ -1,6 +1,6 @@
 import { IMemberEntity } from "../types"
 
-const members: IMemberEntity[] = [
+export const members: IMemberEntity[] = [
 	{
 		id: 1457912,
 		login: "brauliodiez",
@@ -12,5 +12,3 @@ const members: IMemberEntity[] = [
 		avatar_url: "https://avatars.githubusercontent.com/u/4374977?v=3",
 	},
 ]
-
-export { members }

@@ -1,13 +1,22 @@
 import * as React from "react"
 import { Link } from "react-router-dom"
 
-const Header: React.FC<{}> = () => {
+export const Header: React.FC<{}> = () => {
 	return (
-		<div className="row">
-			<nav className="navbar navbar-expand-lg navbar-light bg-light">
+		<div className="row col-12">
+			<nav
+				className="navbar navbar-expand-lg navbar-light bg-white"
+				id="navbar"
+			>
+				<img
+					className="navbar-icon"
+					src={require("../images/lemoncode.png")}
+					alt="logo"
+				/>
 				<a className="navbar-brand" href="#">
 					Lemoncode
 				</a>
+
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -17,19 +26,26 @@ const Header: React.FC<{}> = () => {
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					<span className="navbar-toggler-icon" />
+					<span className="navbar-toggler-icon"></span>
 				</button>
 
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav mr-auto">
 						<li className="nav-item">
 							<Link className="nav-link" to="/about">
+								{" "}
 								About
 							</Link>
 						</li>
 						<li className="nav-item ">
 							<Link className="nav-link" to="/members">
-								Members
+								{" "}
+								Members{" "}
+							</Link>
+						</li>
+						<li className="nav-item ">
+							<Link className="nav-link" to="/member">
+								New Member
 							</Link>
 						</li>
 					</ul>
@@ -38,5 +54,3 @@ const Header: React.FC<{}> = () => {
 		</div>
 	)
 }
-
-export { Header }

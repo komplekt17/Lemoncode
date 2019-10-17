@@ -40,7 +40,7 @@ const updateMember = (member: IMemberEntity, index: number) => {
 	mockMembers = [
 		...mockMembers.slice(0, index),
 		member,
-		...mockMembers.slice(index, 1),
+		...mockMembers.slice(index + 1),
 	]
 }
 
@@ -50,10 +50,23 @@ const insertMember = (member: IMemberEntity) => {
 	mockMembers = [...mockMembers, member]
 }
 
-const memberAPI = {
+const fetchMemberById = (id: number): Promise<IMemberEntity> => {
+	const index: number = mockMembers.findIndex(m => m.id === id)
+	const member: IMemberEntity =
+		index >= 0
+			? mockMembers[index]
+			: {
+					id: -1,
+					login: "",
+					avatar_url: "",
+			  }
+
+	return Promise.resolve(member)
+}
+
+export const memberAPI = {
 	fetchMembers,
 	fetchMembersAsync,
 	saveMember,
+	fetchMemberById,
 }
-
-export { memberAPI }

@@ -1,7 +1,7 @@
 import * as React from "react"
-import { IFormInputProps } from "../../types"
+import { IPropsInput } from "../../types"
 
-const Input: React.FC<IFormInputProps> = props => {
+const Input: React.FC<IPropsInput> = props => {
 	return (
 		<div className={formatWrapperClass(props)}>
 			<label htmlFor={props.name}>{props.label}</label>
@@ -20,16 +20,15 @@ const Input: React.FC<IFormInputProps> = props => {
 	)
 }
 
-const formatWrapperClass = (props: IFormInputProps) => {
+const formatWrapperClass = (props: IPropsInput) => {
 	const wrapperClass = "form-group"
 
 	return props.error ? `${wrapperClass} has-error` : wrapperClass
 }
 
-const onChangeInput = (props: IFormInputProps) => (
+const onChangeInput = (props: IPropsInput) => (
 	e: React.ChangeEvent<HTMLInputElement>
 ) => {
 	props.onChange(e.target.name, e.target.value)
 }
-
 export { Input }

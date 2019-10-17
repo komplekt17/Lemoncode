@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const MemberHeader: React.FC<{}> = () => {
+const MembersHeader: React.FC<{}> = () => {
 	return (
 		<tr>
 			<th>Avatar</th>
@@ -10,4 +10,4 @@ const MemberHeader: React.FC<{}> = () => {
 	)
 }
 
-export { MemberHeader }
+export { MembersHeader }

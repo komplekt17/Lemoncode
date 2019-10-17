@@ -1,7 +1,7 @@
 import * as React from "react"
-import { IFormButtonProps } from "../../types"
+import { IPropsButton } from "../../types"
 
-const Button: React.FC<IFormButtonProps> = props => {
+const Button: React.FC<IPropsButton> = props => {
 	return (
 		<button
 			type="button"
@@ -12,5 +12,4 @@ const Button: React.FC<IFormButtonProps> = props => {
 		</button>
 	)
 }
-
 export { Button }

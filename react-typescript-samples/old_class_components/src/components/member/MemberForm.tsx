@@ -2,7 +2,7 @@ import * as React from "react"
 import { IMemberFormProps } from "../../types"
 import { Input, Button } from "../form"
 
-const MemberForm: React.StatelessComponent<IMemberFormProps> = props => {
+const MemberForm: React.FC<IMemberFormProps> = props => {
 	return (
 		<form>
 			<h1>Manage member</h1>
@@ -12,6 +12,11 @@ const MemberForm: React.StatelessComponent<IMemberFormProps> = props => {
 				label="Login"
 				value={props.member.login}
 				onChange={props.onChange}
+				error={
+					props.memberErrors.login.succeeded
+						? ""
+						: props.memberErrors.login.errorMessage
+				}
 			/>
 
 			<Input
@@ -29,5 +34,4 @@ const MemberForm: React.StatelessComponent<IMemberFormProps> = props => {
 		</form>
 	)
 }
-
 export { MemberForm }

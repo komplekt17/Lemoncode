@@ -1,22 +1,21 @@
 import * as React from "react"
-import { Route, HashRouter, Switch } from "react-router-dom"
+import { Route, HashRouter as Router, Switch } from "react-router-dom"
 import { App } from "./container/App"
 import { About, MembersPage, MemberPageContainer } from "./components"
 
-const AppRouter: React.FC<{}> = () => {
+export const AppRouter: React.FC<{}> = () => {
 	return (
-		<HashRouter>
+		<Router>
 			<div className="container-fluid">
 				<Route component={App} />
 				<Switch>
 					<Route exact path="/" component={About} />
 					<Route path="/about" component={About} />
 					<Route path="/members" component={MembersPage} />
-					<Route path="/member" component={MemberPageContainer} />
+					<Route exact path="/member" component={MemberPageContainer} />
+					<Route path="/member/:id" component={MemberPageContainer} />
 				</Switch>
 			</div>
-		</HashRouter>
+		</Router>
 	)
 }
-
-export { AppRouter }

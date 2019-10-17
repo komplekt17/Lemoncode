@@ -13,10 +13,16 @@ module.exports = {
 	entry: {
 		app: ["@babel/polyfill/noConflict", "./index.tsx"],
 		appStyles: "./styles/site.css",
-		vendor: ["react", "react-dom", "react-router-dom", "toastr"],
+		vendor: [
+			"react",
+			"react-dom",
+			"react-router-dom",
+			"toastr",
+			"lc-form-validation",
+		],
 		vendorStyles: [
 			"../node_modules/bootstrap/dist/css/bootstrap.css",
-			"'../node_modules/toastr/build/toastr.css',",
+			"../node_modules/toastr/build/toastr.css",
 		],
 	},
 	output: {
@@ -28,7 +34,7 @@ module.exports = {
 		contentBase: "./dist", // Content base
 		inline: true, // Enable watch and live reload
 		host: "localhost",
-		port: 8080,
+		port: 3000,
 		stats: "errors-only",
 	},
 	module: {

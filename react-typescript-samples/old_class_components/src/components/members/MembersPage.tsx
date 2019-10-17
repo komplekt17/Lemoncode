@@ -1,48 +1,44 @@
-import * as React from "react"
-import { Link } from 'react-router-dom'
-import { memberAPI } from '../../api'
-import { IMembersPage, IPropsMembersPage } from '../../types'
-import { MemberHeader, MemberRow} from '../members'
+import * as React from 'react';
+import { IMembersPageState, IMembersPageProps } from '../../types';
+import { memberAPI } from '../../api';
+import { MembersHeader, MembersRow } from '../members';
 
-class MembersPage extends React.Component<IPropsMembersPage, IMembersPage> {
-	constructor(props: any) {
-		super(props);
-		this.state = { members: [] };
-	}
+class MembersPage extends 
+React.Component<IMembersPageProps, IMembersPageState> {
+  constructor(props) {
+    super(props);
+    this.state = { members: [] };
+  }
 
-	public componentDidMount() {
-		memberAPI
-			.fetchMembers()
-			.then((members) => {
-				this.setState({ members });
-			});
-	}
+  public componentDidMount() {
+    memberAPI.fetchMembersAsync()
+      .then((members) => {
+        this.setState({ members });
+      });
+  }
 
-	public render() {
-		return (
-			<div className="row">
-				<h2> Members Page</h2>
-				<Link to="/member">New Member</Link>
-				<table className="table">
-					<thead>
-						{/* {MemberHeader()} */}
-						<MemberHeader />
-					</thead>
-					<tbody>
-						{/* {this.state.members.map(MemberRow)} */}
-						{
-             this.state.members.map((member) =>
-               <MemberRow
-                 key={member.id}
-                 member={member}
-               />
-             )
-           }
-					</tbody>
-				</table>
-			</div>
-		);
-	}
+  public render() {
+    return (
+      <div className="row">
+        <h2> Members Page</h2>
+        <table className="table">
+          <thead>
+            <MembersHeader />
+          </thead>
+          <tbody>
+            {
+              this.state.members.map((member) =>
+                <MembersRow
+                  key={member.id}
+                  member={member}
+                />
+              )
+            }
+          </tbody>
+        </table>
+      </div>
+    );
+  }
 };
 
-export { MembersPage }
+export {MembersPage}
